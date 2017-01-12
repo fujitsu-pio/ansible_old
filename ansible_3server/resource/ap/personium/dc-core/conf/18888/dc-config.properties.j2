@@ -140,55 +140,6 @@ io.personium.core.es.cluster.name=clusterdc
 #io.personium.core.es.ads.type=jdbc
 io.personium.core.es.ads.type=none
 
-# Name of JDBC driver class. Just valid when core.es.ads.type=jdbc.
-io.personium.core.es.ads.jdbc.driverClassName=com.mysql.jdbc.Driver
-
-# Connection URL for JDBC.
-io.personium.core.es.ads.jdbc.url=jdbc:mysql://{{ ads_master_host }}:3306
-
-# User name for JDBC connection.
-io.personium.core.es.ads.jdbc.user={{ ads_pcsuser }}
-
-# Password for JDBC connection.
-io.personium.core.es.ads.jdbc.password={{ ads_pcsuser_password }}
-
-# Initial connection number of connection pool.
-io.personium.core.es.ads.jdbc.cp.initialSize=10
-
-# Maximum number of active connections that can be allocated from this pool 
-# at the same time.
-io.personium.core.es.ads.jdbc.cp.maxActive=100
-
-# Maximum number of connections that should be kept in the pool at all times.
-io.personium.core.es.ads.jdbc.cp.maxIdle=30
-
-# Time in milliseconds that the pool will wait for a connection to be returned 
-# before throwing an exception.
-io.personium.core.es.ads.jdbc.cp.maxWait=5000
-
-# Database validation query to confirm that the dababase is running.
-io.personium.core.es.ads.jdbc.cp.validationQuery=select count(*) from dual
-
-# Initial delay time in second for starting automatic repair service.
-io.personium.core.es.ads.repair.initialDelayInSec=120
-
-# Interval in seconds between each invocation of automatic repair service.
-io.personium.core.es.ads.repair.intervalInSec=60
-
-# Shutdown grace period in seconds when shutting down while the automatic 
-# repair service is running.
-io.personium.core.es.ads.repair.awaitShutdownInSec=600
-
-# Path to a file. When the file exists, automatic repair service is invoked, 
-# otherwise not.
-io.personium.core.es.ads.repair.invocationFlagFile=/personium/dc-core/invokeRepair
-
-# Directory path for storing ADS repair log.
-io.personium.core.es.ads.log.dir=/personium/dc-core/ads
-
-# Boolean flag to delete ADS repair log physically or not, after repair service completion.
-io.personium.core.es.ads.physical.delete=true
-
 
 #################################################
 # Engine module integration
