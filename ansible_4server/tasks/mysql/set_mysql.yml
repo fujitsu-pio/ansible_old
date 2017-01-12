@@ -1,10 +1,10 @@
-# Copyright FUJITSU LIMITED 2015.
+# Copyright FUJITSU LIMITED 2015-2017.
 
 - name: my.cnfのコピー
   copy: src=./resource/mysql/my_{{ads_rep_role}}.cnf dest=/etc/my.cnf owner={{ ads_username }} group={{ ads_groupname }} mode=0644 
 
 - name: 自動起動の設定変更
-  shell: /sbin/chkconfig mysql off
+  shell: /sbin/chkconfig mysql on
 
 - name: DBの初期化
   shell: mysql_install_db

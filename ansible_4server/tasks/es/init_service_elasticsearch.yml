@@ -1,10 +1,10 @@
-# Copyright FUJITSU LIMITED 2015.
+# Copyright FUJITSU LIMITED 2015-2017.
 
 - name: elasticsearch 起動
   service: name=elasticsearch state=started
 
-- name: elasticsearch 自動起動OFF
-  command: "chkconfig elasticsearch off"
+- name: elasticsearch 自動起動ON
+  command: "chkconfig elasticsearch on"
 # 下記ではchkconfigはOFFになるが、rc3.d配下にSXXスクリプトが残り自動起動してしまう
 # service: name=elasticsearch enabled=no
 

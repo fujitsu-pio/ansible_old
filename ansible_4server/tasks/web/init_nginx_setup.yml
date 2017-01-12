@@ -1,4 +1,4 @@
-# Copyright FUJITSU LIMITED 2015.
+# Copyright FUJITSU LIMITED 2015-2017.
 
 - name: 標準の conf を orig.conf にコピー
   command: cp -pr conf orig.conf
@@ -29,8 +29,8 @@
 - name: nginx をサービスに登録
   command: chkconfig --add nginx
 
-- name: nginx の自動起動を抑止
-  command: chkconfig nginx off
+- name: nginx の自動起動を有効にする
+  command: chkconfig nginx on
 
 - name: nginx を起動
   command: service nginx start

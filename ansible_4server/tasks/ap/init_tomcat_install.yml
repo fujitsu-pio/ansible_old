@@ -1,4 +1,4 @@
-# Copyright FUJITSU LIMITED 2015.
+# Copyright FUJITSU LIMITED 2015-2017.
 
 - name: pcre-devel をインストール
   yum: name=pcre-devel state=latest
@@ -119,7 +119,7 @@
   copy: src=./resource/ap/opt/tomcat/conf/tomcat-users.xml dest=/opt/tomcat/conf/tomcat-users.xml owner=personium group=personium mode=600
 
 - name: tomcat サービスへの登録
-  service: name=tomcat enabled=no
+  service: name=tomcat enabled=yes
 
 - name: tomcat サービスの起動
   service: name=tomcat state=started
