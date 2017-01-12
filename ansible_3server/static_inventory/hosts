@@ -74,13 +74,6 @@ master_token={Master_Token}
 ## WebサーバーのFQDN
 base_url={Web_FQDN}
 
-## ads(master)情報
-ads_master_host={ADS_Master_Private_IP}
-ads_pcsuser={ADS_User_Name}
-ads_pcsuser_password={ADS_User_Password}
-ads_rootuser={ADS_Root_Name}
-ads_rootuser_password={ADS_Root_Password}
-
 ## ElastciSearchサーバのDNS
 es_elb={ES_Private_IP}
 
