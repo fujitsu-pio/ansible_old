@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # personium
-# Copyright 2014 FUJITSU LIMITED
+# Copyright 2014-2017 FUJITSU LIMITED
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,12 +21,12 @@
 # 環境の設定
 DOMAIN={{ base_url }}
 MASTER_TOKEN={{ master_token }}
-CELL_NAME=servicemanager
-CELL_OWNER={{ base_url }}/#sc-pcs
-SERVICEMANAGER_ACCOUNT_FILE=/tmp/servicemanager_account
+CELL_NAME=unitadmin
+CELL_OWNER={{ base_url }}/#unitadmin
+UNITADMIN_ACCOUNT_FILE=/root/ansible/unitadmin_account
 
 # 作成するアカウントとパスワード
-UU_NAME=(sc-pcs pcs-rt)
+UU_NAME=(unitadmin personium-rt)
 UU_PASS=()
 CELL_URL=$DOMAIN/$CELL_NAME
 
@@ -42,14 +42,14 @@ function check_response() {
 }
 
 #Cellの新規作成
-echo "######  SVC MGRセルの作成  ######"
+echo "######  UNIT ADMINセルの作成  ######"
 CURL_RESULT=`curl -w "\nstatus:%{http_code}\n" $DOMAIN/__ctl/Cell -X POST -H "Authorization: Bearer $MASTER_TOKEN" -H "X-Dc-Unit-User: $CELL_OWNER" -d "{\"Name\":\"$CELL_NAME\"}" -k -i -s`
 echo "$CURL_RESULT"
 
 echo "-- 作成確認"
 CURL_RESULT=`curl -w "\nstatus:%{http_code}\n" "$DOMAIN/__ctl/Cell(%27$CELL_NAME%27)" -X GET -H "Authorization: Bearer $MASTER_TOKEN" -k -i -s`
 echo "$CURL_RESULT"
-check_response 200 "SVC MGRセルの作成確認"
+check_response 200 "UNIT ADMINセルの作成確認"
 
 # アカウントの作成
 echo "######  アカウント作成  ######"
@@ -72,5 +72,5 @@ done
 
 # パスワードの確認まで問題なく完了したら、作成した情報をファイルに落とし込む
 for i in `seq 0 1 $UU_MAX_IDX`; do
-  echo "${UU_NAME[$i]}" "${UU_PASS[$i]}" >> ${SERVICEMANAGER_ACCOUNT_FILE}
+  echo "${UU_NAME[$i]}" "${UU_PASS[$i]}" >> ${UNITADMIN_ACCOUNT_FILE}
 done
