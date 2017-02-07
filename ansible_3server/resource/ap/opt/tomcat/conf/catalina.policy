@@ -250,17 +250,17 @@ grant codeBase "file:${catalina.home}/webapps/manager/-" {
 
 
 
-// for dc1-core
-grant codeBase "file:${catalina.home}/webapps/dc1-core/-" {
+// for personium-core
+grant codeBase "file:${catalina.home}/webapps/personium-core/-" {
     permission java.security.AllPermission;
 };
 
-// for dc1-engine
-grant codeBase "file:${catalina.home}/webapps/dc1-engine/-" {
+// for personium-engine
+grant codeBase "file:${catalina.home}/webapps/personium-engine/-" {
     permission java.security.AllPermission;
 };
 
-// for dc1-engine extensions
-grant codeBase "file:/personium/18888/dc-engine/extensions/-" {
+// for personium-engine extensions
+grant codeBase "file:/personium/18888/personium-engine/extensions/-" {
     permission java.security.AllPermission;
 };

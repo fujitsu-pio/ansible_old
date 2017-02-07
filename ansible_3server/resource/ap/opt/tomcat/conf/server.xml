@@ -148,7 +148,7 @@
 
       <Host name="localhost"  appBase="webapps"
             unpackWARs="true" autoDeploy="false" deployXML="true"
-            errorReportValveClass="com.fujitsu.dc.error.tomcat.CustomErrorPage">
+            errorReportValveClass="io.personium.error.tomcat.CustomErrorPage">
 
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
@@ -159,8 +159,8 @@
         <!-- Access log processes all example.
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
-       <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" 
-               prefix="localhost_access" suffix=".log" 
+       <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access" suffix=".log"
                pattern="%h %t %S %I &quot;%r&quot; &quot;%{User-Agent}i&quot; %s %B %D"
                encoding="UTF-8" rotatable="false"/>
 

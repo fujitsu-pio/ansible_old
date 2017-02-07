@@ -16,16 +16,16 @@
 #
 
 #################################################
-#dc-core configurations
+#personium-core configurations
 #################################################
 
 ##### Major Settings Items #####
 # Unit Master Token.
 # Blank string should be configured in production use to disable it.
 io.personium.core.masterToken={{ master_token }}
-# 
+#
 io.personium.core.unitScheme=https
-# 
+#
 
 io.personium.core.unitUser.issuers={{ base_url}}/UnitUserCell/ {{ base_url}}/unitadmin/
 
@@ -36,7 +36,7 @@ io.personium.core.lock.accountlock.time=1
 ###### X509 ######
 # File path to the X509 root certificate file.
 #
-# If you do not specify anything, the certificate of personium.io's offical 
+# If you do not specify anything, the certificate of personium.io's offical
 # CA will automatically be trusted.
 io.personium.core.x509.root=/opt/x509/unit-self-sign.crt /opt/x509/cacert.crt
 
@@ -51,7 +51,7 @@ io.personium.core.x509.key=/opt/x509/unit.key
 # Encryption key for generating local token.
 # Unique value MUST be configured for each unit.
 #  Specify as random 16 digit hex string.
-io.personium.core.security.sercret16={{ secret16.stdout }}
+io.personium.core.security.secret16={{ secret16.stdout }}
 
 # Account password hash salt.
 # Unique value SHOULD be configured for each unit.
@@ -71,7 +71,7 @@ io.personium.core.security.auth.password.salt={{ salt.stdout }}
 # Fundamental Settings
 #################################################
 
-# Enable or disable to record the timestamp into Account data when the password 
+# Enable or disable to record the timestamp into Account data when the password
 # authentication is succeeded.
 io.personium.core.account.lastauthenticated.enabled=false
 
@@ -89,7 +89,7 @@ io.personium.core.lock.memcached.opTimeout=12000
 ##### Cache configuration #####
 # Type of cache manager. Either "memcached" or "none".
 #
-# When specifying "none", the load of the Elasticsearch server will increase 
+# When specifying "none", the load of the Elasticsearch server will increase
 # as every request accesses to Elasticsearch.
 io.personium.core.cache.type={{ cache_manager }}
 
@@ -121,12 +121,12 @@ io.personium.core.cache.memcached.expiresin=86400
 ##### Elasticsearch configuration #####
 # List of hosrt:port of the elasticsearch nodes, separted by comma.
 #
-# It is recommended to specify all the Elasticsearch nodes. However 
+# It is recommended to specify all the Elasticsearch nodes. However
 # it may work at least one active Elasticsearch node is specified.
 io.personium.core.es.hosts={{ es_elb }}:9300
 
 # Elasticsearch cluster name.
-io.personium.core.es.cluster.name=clusterdc
+io.personium.core.es.cluster.name=personium
 
 
 #################################################
@@ -134,8 +134,8 @@ io.personium.core.es.cluster.name=clusterdc
 #################################################
 # Type of AuthenticDataStore. "none" or "jdbc".
 #
-# By specifying "none", personium.io does not store data into 
-# AutenticDataStore, but only Elasticsearch. In this case, there is no way 
+# By specifying "none", personium.io does not store data into
+# AutenticDataStore, but only Elasticsearch. In this case, there is no way
 # to backup the data and restore it into Elasticsearch.
 #io.personium.core.es.ads.type=jdbc
 io.personium.core.es.ads.type=none
@@ -154,37 +154,37 @@ io.personium.core.engine.host=localhost
 io.personium.core.engine.port=18888
 
 # Context path for engine web module.
-io.personium.core.engine.path=dc1-engine
+io.personium.core.engine.path=personium-engine
 
 
 #################################################
 # WebDAV file entity store
 #################################################
-# Boolean flag to delete WebDAV file physically or logically. Set "true" to 
+# Boolean flag to delete WebDAV file physically or logically. Set "true" to
 # delete physically, "false" to delete logically.
 #
-# Using logical deletion will cause disk space shortage. Setting "true" for 
+# Using logical deletion will cause disk space shortage. Setting "true" for
 # physical deletion is recommended.
 io.personium.core.binaryData.physical.delete.mode=true
 
-# Boolean flag to enable fsync to ensure file write operation. 
+# Boolean flag to enable fsync to ensure file write operation.
 # Set "true" to enable.
 #
-# Selecting "true" will have a slight performance penalty due to syncing the 
-# contnent into filesystem. However when filesystem snapshot is used to backup 
-# the data, this flag should be set to "true" to ensure to gat a reliable 
+# Selecting "true" will have a slight performance penalty due to syncing the
+# contnent into filesystem. However when filesystem snapshot is used to backup
+# the data, this flag should be set to "true" to ensure to gat a reliable
 # snapshot.
 io.personium.core.binaryData.fsync.enabled=true
 
 # Directory path or URL to store WebDav data.
-io.personium.core.blobStore.root=/personium_nfs/dc-core/dav
+io.personium.core.blobStore.root=/personium_nfs/personium-core/dav
 
 
 #################################################
 # Setting Items for WebDAV file entity store.
 #################################################
 # Directory path for saving latest event log file.
-io.personium.core.event.log.current.dir=/personium_nfs/dc-core/eventlog
+io.personium.core.event.log.current.dir=/personium_nfs/personium-core/eventlog
 
 # Maximum allowed size of bar file in MBytes.
 io.personium.core.bar.file.maxSize=100
@@ -193,9 +193,9 @@ io.personium.core.bar.file.maxSize=100
 io.personium.core.bar.entry.maxSize=10
 
 # Working directory path for bar file installation.
-io.personium.core.bar.installfile.dir=/personium_nfs/dc-core/barInstall
+io.personium.core.bar.installfile.dir=/personium_nfs/personium-core/barInstall
 
-# Expiration time in seconds of the bar installation progress log 
+# Expiration time in seconds of the bar installation progress log
 # in memcached.
 io.personium.core.bar.progress.expireInSec=259200
 
@@ -217,7 +217,7 @@ io.personium.engine.elasticsearch.hosts={{ es_elb }}:9300
 
 # Elasticsearch cluster name.
 # Will be consolidated to io.personium.core.elasticsearch.cluster
-io.personium.engine.elasticsearch.cluster=clusterdc
+io.personium.engine.elasticsearch.cluster=personium
 
 # Boolean flag to enable fsync to ensure file write operation. Set "true" to enable.
 # Will be consolidated to io.personium.core.binaryData.fsync.enabled
@@ -225,7 +225,7 @@ io.personium.engine.binaryData.fsync.enabled=true
 
 # Directory path or URL to store WebDav data.
 # Will be consolidated to io.personium.core.blobStore.root
-io.personium.engine.blobStore.root=/personium_nfs/dc-core/dav
+io.personium.engine.blobStore.root=/personium_nfs/personium-core/dav
 
 # File path to the X509 root certificate file.
 # Will be consolidated to io.personium.core.x509.root
@@ -240,9 +240,8 @@ io.personium.engine.x509.key=/opt/x509/unit.key
 io.personium.engine.x509.crt=/opt/x509/unit-self-sign.crt
 
 # Encryption key for generating local token
-# Will be consolidated to io.personium.core.security.sercret16
-io.personium.engine.security.sercret16={{ secret16.stdout }}
+# Will be consolidated to io.personium.core.security.secret16
+io.personium.engine.security.secret16={{ secret16.stdout }}
 
 # Davlimit configrations
 io.personium.core.dav.childresource.maxnum=1000000
-

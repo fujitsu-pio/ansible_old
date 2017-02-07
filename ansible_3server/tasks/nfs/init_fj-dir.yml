@@ -4,29 +4,29 @@
   file: state=directory path=/personium owner=root group=root mode=0755
 
 
-#- name: /opt/nfs_piolog/dc-core を作成
-#  file: state=directory path=/opt/nfs_piolog/dc-core owner=root group=root mode=0755
+#- name: /opt/nfs_piolog/personium-core を作成
+#  file: state=directory path=/opt/nfs_piolog/personium-core owner=root group=root mode=0755
 
-#- name: /opt/nfs_piolog/dc-core/log を作成
-#  file: state=directory path=/opt/nfs_piolog/dc-core/log owner=personium group=personium mode=0755
+#- name: /opt/nfs_piolog/personium-core/log を作成
+#  file: state=directory path=/opt/nfs_piolog/personium-core/log owner=personium group=personium mode=0755
 
-#- name: /personium/dc-core を作成
-#  file: state=directory path=/personium/dc-core owner=personium group=personium mode=0755
+#- name: /personium/personium-core を作成
+#  file: state=directory path=/personium/personium-core owner=personium group=personium mode=0755
 
-#- name: /personium/dc-core に /opt/nfs_piolog/dc-core/log の symlink を作成
-#  file: state=link src=/opt/nfs_piolog/dc-core/log dest=/personium/dc-core/log owner=personium group=personium mode=0777
+#- name: /personium/personium-core に /opt/nfs_piolog/personium-core/log の symlink を作成
+#  file: state=link src=/opt/nfs_piolog/personium-core/log dest=/personium/personium-core/log owner=personium group=personium mode=0777
 
-#- name: /opt/nfs_piolog/dc-engine を作成
-#  file: state=directory path=/opt/nfs_piolog/dc-engine owner=root group=root mode=0755
+#- name: /opt/nfs_piolog/personium-engine を作成
+#  file: state=directory path=/opt/nfs_piolog/personium-engine owner=root group=root mode=0755
 
-#- name: /opt/nfs_piolog/dc-engine/log を作成
-#  file: state=directory path=/opt/nfs_piolog/dc-engine/log owner=personium group=personium mode=0755
+#- name: /opt/nfs_piolog/personium-engine/log を作成
+#  file: state=directory path=/opt/nfs_piolog/personium-engine/log owner=personium group=personium mode=0755
 
-#- name: /personium/dc-engine を作成
-#  file: state=directory path=/personium/dc-engine owner=personium group=personium mode=0755
+#- name: /personium/personium-engine を作成
+#  file: state=directory path=/personium/personium-engine owner=personium group=personium mode=0755
 
-#- name: /personium/dc-engine に /opt/nfs_piolog/dc-engine/log の symlink を作成
-#  file: state=link src=/opt/nfs_piolog/dc-engine/log dest=/personium/dc-engine/log owner=personium group=personium mode=0777
+#- name: /personium/personium-engine に /opt/nfs_piolog/personium-engine/log の symlink を作成
+#  file: state=link src=/opt/nfs_piolog/personium-engine/log dest=/personium/personium-engine/log owner=personium group=personium mode=0777
 
 
 #- name: /opt/nfs_piolog/logback を作成
@@ -49,26 +49,26 @@
   file: state=directory path=/personium_nfs owner=root group=root mode=0755
 
 
-- name: /opt/nfs_webdav/dc-core を作成
-  file: state=directory path=/opt/nfs_webdav/dc-core owner=root group=root mode=0755
+- name: /opt/nfs_webdav/personium-core を作成
+  file: state=directory path=/opt/nfs_webdav/personium-core owner=root group=root mode=0755
 
-- name: /opt/nfs_webdav/dc-core/dav を作成
-  file: state=directory path=/opt/nfs_webdav/dc-core/dav owner=personium group=personium mode=0755
+- name: /opt/nfs_webdav/personium-core/dav を作成
+  file: state=directory path=/opt/nfs_webdav/personium-core/dav owner=personium group=personium mode=0755
 
-- name: /opt/nfs_webdav/dc-core/eventlog を作成
-  file: state=directory path=/opt/nfs_webdav/dc-core/eventlog owner=personium group=personium mode=0755
+- name: /opt/nfs_webdav/personium-core/eventlog を作成
+  file: state=directory path=/opt/nfs_webdav/personium-core/eventlog owner=personium group=personium mode=0755
 
-- name: /opt/nfs_webdav/dc-core/barInstall を作成
-  file: state=directory path=/opt/nfs_webdav/dc-core/barInstall owner=personium group=personium mode=0755
+- name: /opt/nfs_webdav/personium-core/barInstall を作成
+  file: state=directory path=/opt/nfs_webdav/personium-core/barInstall owner=personium group=personium mode=0755
 
-- name: /personium_nfs/dc-core を作成
-  file: state=directory path=/personium_nfs/dc-core owner=personium group=personium mode=0755
+- name: /personium_nfs/personium-core を作成
+  file: state=directory path=/personium_nfs/personium-core owner=personium group=personium mode=0755
 
-- name: /personium_nfs/dc-core に /opt/nfs_webdav/dc-core/dav の symlink を作成
-  file: state=link src=/opt/nfs_webdav/dc-core/dav dest=/personium_nfs/dc-core/dav owner=personium group=personium mode=0777
+- name: /personium_nfs/personium-core に /opt/nfs_webdav/personium-core/dav の symlink を作成
+  file: state=link src=/opt/nfs_webdav/personium-core/dav dest=/personium_nfs/personium-core/dav owner=personium group=personium mode=0777
 
-- name: /personium_nfs/dc-core に /opt/nfs_webdav/dc-core/eventlog の symlink を作成
-  file: state=link src=/opt/nfs_webdav/dc-core/eventlog dest=/personium_nfs/dc-core/eventlog owner=personium group=personium mode=0777
+- name: /personium_nfs/personium-core に /opt/nfs_webdav/personium-core/eventlog の symlink を作成
+  file: state=link src=/opt/nfs_webdav/personium-core/eventlog dest=/personium_nfs/personium-core/eventlog owner=personium group=personium mode=0777
 
-- name: /personium_nfs/dc-core に /opt/nfs_webdav/dc-core/barInstall の symlink を作成
-  file: state=link src=/opt/nfs_webdav/dc-core/barInstall dest=/personium_nfs/dc-core/barInstall owner=personium group=personium mode=0777
+- name: /personium_nfs/personium-core に /opt/nfs_webdav/personium-core/barInstall の symlink を作成
+  file: state=link src=/opt/nfs_webdav/personium-core/barInstall dest=/personium_nfs/personium-core/barInstall owner=personium group=personium mode=0777

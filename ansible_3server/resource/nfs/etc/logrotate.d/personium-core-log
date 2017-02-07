@@ -1,4 +1,4 @@
-/personium/dc-core/log/dc-core.log {
+/personium/personium-core/log/personium-core.log {
     daily
     dateext
     compress

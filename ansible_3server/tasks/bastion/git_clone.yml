@@ -3,5 +3,8 @@
 - name: git install
   yum: name=git state=latest
 
-- name: git clone io repo
-  git: repo=https://github.com/personium/io.git dest=/tmp/io
+- name: git clone core repo
+  git: repo=https://github.com/personium/personium-core.git dest=/tmp/personium-core
+
+- name: git clone engine repo
+  git: repo=https://github.com/personium/personium-engine.git dest=/tmp/personium-engine

@@ -1,16 +1,16 @@
 # Copyright FUJITSU LIMITED 2015.
 
-- name: /personium/dc-esgclog のディレクトリを作成
-  file: "state=directory path=/personium/dc-esgclog owner=root group=root"
+- name: /personium/personium-esgclog のディレクトリを作成
+  file: "state=directory path=/personium/personium-esgclog owner=root group=root"
 
 - name: /etc/init/esgclog.conf の配備
   copy: src=./resource/es/etc/init/esgclog.conf dest=/etc/init/esgclog.conf owner=root group=root mode=644
 
-- name: /personium/dc-esgclog/printFullGC.awk の配備
-  copy: src=./resource/es/personium/dc-esgclog/printFullGC.awk dest=/personium/dc-esgclog/printFullGC.awk owner=root group=root mode=744
+- name: /personium/personium-esgclog/printFullGC.awk の配備
+  copy: src=./resource/es/personium/personium-esgclog/printFullGC.awk dest=/personium/personium-esgclog/printFullGC.awk owner=root group=root mode=744
 
-- name: /personium/dc-esgclog/esGCLog.sh の配備
-  copy: src=./resource/es/personium/dc-esgclog/esGCLog.sh dest=/personium/dc-esgclog/esGCLog.sh owner=root group=root mode=744
+- name: /personium/personium-esgclog/esGCLog.sh の配備
+  copy: src=./resource/es/personium/personium-esgclog/esGCLog.sh dest=/personium/personium-esgclog/esGCLog.sh owner=root group=root mode=744
 
 - name: /etc/logrotate.d/es-fullgc の配備
   copy: src=./resource/es/etc/logrotate.d/es-fullgc dest=/etc/logrotate.d/es-fullgc owner=root group=root mode=0644
