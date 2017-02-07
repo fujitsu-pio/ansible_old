@@ -36,7 +36,7 @@ function check_response() {
     exit 2
   fi
   if [ "default" != "${XDCVERSION}" ]; then
-    RES_VERSION=`/bin/grep 'X-Dc-Version' ${CURL_LOG} | awk '{print $2}' | sed -e 's/\r//'`
+    RES_VERSION=`/bin/grep 'X-Personium-Version' ${CURL_LOG} | awk '{print $2}' | sed -e 's/\r//'`
     if [ `echo "${XDCVERSION}" | egrep "^${RES_VERSION}[a-z|-]+|$" | wc -l` -ne 1 ]; then
       echo "${OPERATION}に失敗."
       exit 2
@@ -48,7 +48,7 @@ function check_response() {
 if [ "default" == "${XDCVERSION}" ]; then
   XDCVERSION_HEADER=
 else
-  XDCVERSION_HEADER="-H X-Dc-Version:$XDCVERSION"
+  XDCVERSION_HEADER="-H X-Personium-Version:$XDCVERSION"
 fi
 
 # アクセストークンが指定された場合はそのトークンを使用する
@@ -78,7 +78,7 @@ check_response 201 "ボックス作成"
 
 
 echo "Serviceコレクション作成" >> ${RT_LOG}
-curl -X MKCOL -w "\nstatus:%{http_code}\n" "${URL_DOMAIN}/startuptest/box/col" -d "<?xml version=\"1.0\" encoding=\"utf-8\"?><D:mkcol xmlns:D=\"DAV:\" xmlns:p=\"urn:x-dc1:xmlns\"><D:set><D:prop><D:resourcetype><D:collection/><p:service/></D:resourcetype></D:prop></D:set></D:mkcol>" $XDCVERSION_HEADER -H "Accept:application/json" -H "Authorization:Bearer $ACCESSTOKEN" -i -k -s > ${CURL_LOG}
+curl -X MKCOL -w "\nstatus:%{http_code}\n" "${URL_DOMAIN}/startuptest/box/col" -d "<?xml version=\"1.0\" encoding=\"utf-8\"?><D:mkcol xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"><D:set><D:prop><D:resourcetype><D:collection/><p:service/></D:resourcetype></D:prop></D:set></D:mkcol>" $XDCVERSION_HEADER -H "Accept:application/json" -H "Authorization:Bearer $ACCESSTOKEN" -i -k -s > ${CURL_LOG}
 check_response 201 "Serviceコレクション作成"
 
 
@@ -89,7 +89,7 @@ check_response 201 "サービスソース作成"
 
 
 echo "サービス登録" >> ${RT_LOG}
-curl -X PROPPATCH -w "\nstatus:%{http_code}\n" "${URL_DOMAIN}/startuptest/box/col" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-dc1:xmlns\" xmlns:Z=\"http:/www.w3.com/standards/z39.50/\"><D:set><D:prop><p:service language=\"JavaScript\"><dc:path name=\"test\" src=\"test.js\"/></p:service></D:prop></D:set></D:propertyupdate>" $XDCVERSION_HEADER -H "Accept:application/json" -H "Authorization:Bearer $ACCESSTOKEN" -i -k -s > ${CURL_LOG}
+curl -X PROPPATCH -w "\nstatus:%{http_code}\n" "${URL_DOMAIN}/startuptest/box/col" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\" xmlns:Z=\"http:/www.w3.com/standards/z39.50/\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"test\" src=\"test.js\"/></p:service></D:prop></D:set></D:propertyupdate>" $XDCVERSION_HEADER -H "Accept:application/json" -H "Authorization:Bearer $ACCESSTOKEN" -i -k -s > ${CURL_LOG}
 check_response 207 "サービス登録"
 if [ "`/bin/grep '<status>' ${CURL_LOG} | awk '{print $2}'`" != "200" ];then
   echo "サービス登録に失敗した."

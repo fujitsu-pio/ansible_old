@@ -49,8 +49,8 @@
 - name: /opt/logback/logback.sh を配備
   copy: src=./resource/nfs/opt/logback/logback.sh dest=/opt/logback/logback.sh owner=root group=root mode=0755
 
-- name: /etc/logrotate.d/dc-core-log を配備
-  copy: src=./resource/nfs/etc/logrotate.d/dc-core-log dest=/etc/logrotate.d/dc-core-log owner=root group=root mode=0644
+- name: /etc/logrotate.d/personium-core-log を配備
+  copy: src=./resource/nfs/etc/logrotate.d/personium-core-log dest=/etc/logrotate.d/personium-core-log owner=root group=root mode=0644
 
 
 - name: /var/run/logback を作成
