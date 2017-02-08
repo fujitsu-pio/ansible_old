@@ -32,8 +32,8 @@
 - name: personium-engine.war の配備
   copy: src=./resource/ap/opt/tomcat/webapps/personium-engine.war dest=/opt/tomcat/webapps/personium-engine.war owner=personium group=personium mode=644
 
-- name: personium-custom.jar の配備
-  copy: src=./resource/ap/opt/tomcat/lib/personium-custom.jar dest=/opt/tomcat/lib/personium-custom.jar owner=root group=root mode=644
+- name: personium-custom-errorpage.jar の配備
+  copy: src=./resource/ap/opt/tomcat/lib/personium-custom-errorpage.jar dest=/opt/tomcat/lib/personium-custom-errorpage.jar owner=root group=root mode=644
 
 - name: tomcat サービスの起動
   service: name=tomcat state=started
