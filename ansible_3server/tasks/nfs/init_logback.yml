@@ -37,8 +37,8 @@
 - name: /opt/logback/slf4j-1.6.4 配下の権限を変更
   file: state=directory path=/opt/logback/slf4j-1.6.4 owner=personium group=personium recurse=yes
 
-- name: /personium/logback/dc1-logback.jar を配備
-  copy: src=./resource/nfs/personium/logback/dc1-logback.jar dest=/personium/logback/dc1-logback.jar owner=personium group=personium mode=0644
+#- name: /personium/logback/dc1-logback.jar を配備
+#  copy: src=./resource/nfs/personium/logback/dc1-logback.jar dest=/personium/logback/dc1-logback.jar owner=personium group=personium mode=0644
 
 - name: /opt/logback/logback.xml を配備
   copy: src=./resource/nfs/opt/logback/logback.xml dest=/opt/logback/logback.xml owner=personium group=personium mode=0644

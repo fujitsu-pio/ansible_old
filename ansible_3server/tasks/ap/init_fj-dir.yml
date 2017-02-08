@@ -1,8 +1,7 @@
 # Copyright FUJITSU LIMITED 2015-2017.
 
 - name: /personium を作成
-  file: state=directory path=/personium owner=root group=root mode=0755
-
+  file: state=directory path=/personium owner=personium group=personium mode=0755
 
 - name: /opt/ap_piolog/personium-core を作成
   file: state=directory path=/opt/ap_piolog/personium-core owner=root group=root mode=0755
