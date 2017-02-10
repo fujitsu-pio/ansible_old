@@ -10,7 +10,7 @@
 
 
 if [ $# -ne 1 ]; then
-   echo "Usage: pcs_regression.sh {url_domain}"
+   echo "Usage: personium_regression.sh {url_domain}"
    echo "This argument is necessary."
    exit 1
 fi
@@ -146,7 +146,7 @@ curl -w "\nstatus:%{http_code}\n" "${URL_DOMAIN}/__ctl/Cell(Name='startuptest')"
 check_response 404 "セル削除確認"
 
 
-echo "PCS Version(${XDCVERSION}) RT OK"
-echo "PCS Version(${XDCVERSION}) RT OK" >> ${RT_LOG}
+echo "personium Version(${XDCVERSION}) RT OK"
+echo "personium Version(${XDCVERSION}) RT OK" >> ${RT_LOG}
 /bin/rm ${CURL_LOG}
 exit 0

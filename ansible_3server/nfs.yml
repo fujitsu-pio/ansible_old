@@ -10,11 +10,12 @@
 
 - include: ./tasks/common/init_ebs_volume.yml
   vars:
-    diskname: sdc
+    diskname: {{ nfs_webdav_vol }}
+#    diskname: sdc
     mountpoint: /opt/nfs_webdav
 
 - include: ./tasks/common/init_process_account_personium.yml
-- include: ./tasks/nfs/init_fj-dir.yml
+- include: ./tasks/nfs/init_personium-dir.yml
 - include: ./tasks/nfs/init_nfs-server.yml
 - include: ./tasks/nfs/init_logback.yml
 

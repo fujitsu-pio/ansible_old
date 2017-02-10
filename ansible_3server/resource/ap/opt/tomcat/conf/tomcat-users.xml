@@ -37,5 +37,5 @@
   <role rolename="manager-status"/>
   <role rolename="admin-gui"/>
   <role rolename="admin-script"/>
-  <user username="root" password="scpcs" roles="manager-gui,manager-status,admin-gui,admin-script"/>
+  <user username="root" password="scpersonium" roles="manager-gui,manager-status,admin-gui,admin-script"/>
 </tomcat-users>

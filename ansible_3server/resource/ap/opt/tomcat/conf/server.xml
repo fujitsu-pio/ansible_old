@@ -96,12 +96,12 @@
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
      -->
 
-    <!-- Define for PCS (port: 18888)
+    <!-- Define for personium (port: 18888)
          TODO parameter settings. -->
 
     <Connector executor="thread-pool-1"
                port="18888"
-               server="PCS"
+               server="personium"
                protocol="HTTP/1.1"
                address="0.0.0.0"
                connectionTimeout="20000"

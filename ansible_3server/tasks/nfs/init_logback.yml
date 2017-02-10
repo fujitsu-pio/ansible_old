@@ -30,7 +30,6 @@
     chdir: /opt/logback
     creates: /opt/logback/slf4j-1.6.4
 
-
 - name: /opt/logback/logback-1.0.3 配下の権限を変更
   file: state=directory path=/opt/logback/logback-1.0.3 owner=personium group=personium recurse=yes
 
@@ -41,30 +40,28 @@
 #  copy: src=./resource/nfs/personium/logback/dc1-logback.jar dest=/personium/logback/dc1-logback.jar owner=personium group=personium mode=0644
 
 - name: /opt/logback/logback.xml を配備
-  copy: src=./resource/nfs/opt/logback/logback.xml dest=/opt/logback/logback.xml owner=personium group=personium mode=0644
+  copy: src=./resource/ap/opt/logback/logback.xml dest=/opt/logback/logback.xml owner=personium group=personium mode=0644
 
 - name: /etc/rc.d/init.d/logback を配備
   copy: src=./resource/nfs/etc/rc.d/init.d/logback dest=/etc/rc.d/init.d/logback owner=root group=root mode=0755
 
-- name: /opt/logback/logback.sh を配備
-  copy: src=./resource/nfs/opt/logback/logback.sh dest=/opt/logback/logback.sh owner=root group=root mode=0755
+#- name: /opt/logback/logback.sh を配備
+#  copy: src=./resource/nfs/opt/logback/logback.sh dest=/opt/logback/logback.sh owner=root group=root mode=0755
 
 - name: /etc/logrotate.d/personium-core-log を配備
   copy: src=./resource/nfs/etc/logrotate.d/personium-core-log dest=/etc/logrotate.d/personium-core-log owner=root group=root mode=0644
 
+#- name: /var/run/logback を作成
+#  file: state=directory path=/var/run/logback owner=personium group=personium mode=0755
 
-- name: /var/run/logback を作成
-  file: state=directory path=/var/run/logback owner=personium group=personium mode=0755
+#- name: logback をサービスに登録
+#  command: chkconfig --add logback
 
+#- name: logback の自動起動を抑止
+#  command: chkconfig logback off
 
-- name: logback をサービスに登録
-  command: chkconfig --add logback
-
-- name: logback の自動起動を抑止
-  command: chkconfig logback off
-
-- name: logback を起動
-  command: service logback start
-  args:
-    chdir: /opt/logback
-    creates: /var/run/logback/logback.pid
+#- name: logback を起動
+#  command: service logback start
+#  args:
+#    chdir: /opt/logback
+#    creates: /var/run/logback/logback.pid

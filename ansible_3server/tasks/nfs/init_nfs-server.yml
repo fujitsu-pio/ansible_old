@@ -20,7 +20,7 @@
 - name: /etc/fstab の最終行にマウント先のサーバ、ディレクトリやクライアント側のマウントポイントを記載する。
   lineinfile: >
     dest=/etc/fstab
-    line='pcs-nfs:/opt/nfs_webdav /opt/nfs1 nfs nfsvers=3,tcp,hard,intr,sync,noac,lookupcache=none,bg'
+    line='personium-nfs:/opt/nfs_webdav /opt/nfs1 nfs nfsvers=3,tcp,hard,intr,sync,noac,lookupcache=none,bg'
 
 - name: exportsの設定反映
   shell: exportfs -a

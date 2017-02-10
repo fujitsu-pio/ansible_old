@@ -62,7 +62,7 @@ STATD_OUTGOING_PORT=13113
 # Optional arguments passed to rpc.gssd. See rpc.gssd(8)
 #RPCGSSDARGS=""
 # Optional arguments passed to rpc.svcgssd. See rpc.svcgssd(8)
-#RPCSVCGSSDARGS=""
+#RpersoniumVCGSSDARGS=""
 #
 # To enable RDMA support on the server by setting this to
 # the port the server should listen on

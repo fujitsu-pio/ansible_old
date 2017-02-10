@@ -43,7 +43,7 @@ function check_response() {
 
 #Cellの新規作成
 echo "######  UNIT ADMINセルの作成  ######"
-CURL_RESULT=`curl -w "\nstatus:%{http_code}\n" $DOMAIN/__ctl/Cell -X POST -H "Authorization: Bearer $MASTER_TOKEN" -H "X-Dc-Unit-User: $CELL_OWNER" -d "{\"Name\":\"$CELL_NAME\"}" -k -i -s`
+CURL_RESULT=`curl -w "\nstatus:%{http_code}\n" $DOMAIN/__ctl/Cell -X POST -H "Authorization: Bearer $MASTER_TOKEN" -H "X-Personium-Unit-User: $CELL_OWNER" -d "{\"Name\":\"$CELL_NAME\"}" -k -i -s`
 echo "$CURL_RESULT"
 
 echo "-- 作成確認"
@@ -58,7 +58,7 @@ for i in `seq 0 1 $UU_MAX_IDX`; do
 
   echo "   creating account ["${UU_NAME[$i]}"]"
   echo "            passwd  ["${UU_PASS[$i]}"]"
-  CURL_RESULT=`curl -w "\nstatus:%{http_code}\n" $CELL_URL/__ctl/Account -X POST -H "Authorization: Bearer $MASTER_TOKEN" -H "X-Dc-Credential: ${UU_PASS[$i]}" -d "{\"Name\":\"${UU_NAME[$i]}\"}" -k -i -s`
+  CURL_RESULT=`curl -w "\nstatus:%{http_code}\n" $CELL_URL/__ctl/Account -X POST -H "Authorization: Bearer $MASTER_TOKEN" -H "X-Personium-Credential: ${UU_PASS[$i]}" -d "{\"Name\":\"${UU_NAME[$i]}\"}" -k -i -s`
   echo "$CURL_RESULT"
   check_response 201 "アカウント作成"
 

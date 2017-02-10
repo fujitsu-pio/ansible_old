@@ -18,7 +18,6 @@
 - name: gcc をインストール
   yum: name=gcc state=latest
 
-
 - name: memcached-{{ memcached_version }}.tar.gz をダウンロード
 #  1.4.15 <=
 #  get_url: url=http://memcached.googlecode.com/files/memcached-{{ memcached_version }}.tar.gz dest=/usr/local/src/memcached-{{ memcached_version }}.tar.gz

@@ -5,7 +5,8 @@
 
 - include: ./tasks/common/init_ebs_volume.yml
   vars:
-    diskname: sdb
+    diskname: {{ pio_logvol }}
+#    diskname: sdb
     mountpoint: /opt/ap_piolog
 
 - name: MySQL-Clientインストール
@@ -15,7 +16,7 @@
 
 - include: ./tasks/common/init_process_account_personium.yml
 
-- include: ./tasks/ap/init_fj-dir.yml
+- include: ./tasks/ap/init_personium-dir.yml
 
 - include: ./tasks/ap/init_tomcat_install.yml
 - include: ./tasks/ap/init_personium_setup.yml

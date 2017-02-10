@@ -9,9 +9,9 @@ tomcat_metaspace_size: 256m
 tomcat_max_metaspace_size: 256m
 
 # lock / cache instance
-lock_host: pcs-nfs
+lock_host: personium-nfs
 lock_port: 11211
-cache_host: pcs-nfs
+cache_host: personium-nfs
 cache_port: 11212
 # Type of cache manager. Either "memcached" or "none".
 cache_manager: memcached
