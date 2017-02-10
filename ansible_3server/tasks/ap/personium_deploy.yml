@@ -14,8 +14,8 @@
 - name: personium-config.properties の配備
   template: src=./resource/ap/personium/personium-core/conf/18888/personium-unit-config.properties.j2 dest=/personium/personium-core/conf/18888/personium-unit-config.properties owner=root group=root mode=0644
 
-- name: logback-18888.xml の配備
-  copy: src=./resource/ap/opt/logback/logback-18888.xml dest=/opt/logback/logback-18888.xml owner=personium group=personium mode=0644
+- name: logback.xml の配備
+  copy: src=./resource/ap/opt/logback/logback.xml dest=/opt/logback/logback.xml owner=personium group=personium mode=0644
 
 - name: tomcat サービスの停止
   service: name=tomcat state=stopped

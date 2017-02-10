@@ -10,7 +10,7 @@
 
 - include: ./tasks/common/init_ebs_volume.yml
   vars:
-    diskname: {{ nfs_webdav_vol }}
+    diskname: "{{ nfs_webdav_vol }}"
 #    diskname: sdc
     mountpoint: /opt/nfs_webdav
 

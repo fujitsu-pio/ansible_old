@@ -5,12 +5,12 @@
 
 - include: ./tasks/common/init_ebs_volume.yml
   vars:
-    diskname: {{ pio_logvol }}
+    diskname: "{{ pio_logvol }}"
 #    diskname: sdb
     mountpoint: /opt/ap_piolog
 
-- name: MySQL-Clientインストール
-  yum: name=mysql state=latest
+#- name: MySQL-Clientインストール
+#  yum: name=mysql state=latest
 
 - include: ./tasks/ap/init_nfsclient.yml
 

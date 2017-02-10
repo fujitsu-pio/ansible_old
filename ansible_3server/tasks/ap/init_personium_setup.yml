@@ -14,8 +14,8 @@
 - name: /personium/personium-core/conf/salt.key の配備
   copy: src=./resource/ap/personium/personium-core/conf/salt.key dest=/personium/personium-core/conf/salt.key owner=root group=root mode=0400
 
-- name: create invocation flag file
-  file: state=touch path=/personium/personium-core/invokeRepair owner=personium group=personium mode=0644
+#- name: create invocation flag file
+#  file: state=touch path=/personium/personium-core/invokeRepair owner=personium group=personium mode=0644
 
 - name: /opt/x509 ディレクトリを作成
   file: "state=directory path=/opt/x509 owner=personium group=personium mode=550"
@@ -28,4 +28,3 @@
 
 - name: /opt/logback ディレクトリの作成
   file: "state=directory path=/opt/logback owner=personium group=personium"
-

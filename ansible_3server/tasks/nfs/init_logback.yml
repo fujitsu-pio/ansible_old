@@ -39,8 +39,8 @@
 #- name: /personium/logback/dc1-logback.jar を配備
 #  copy: src=./resource/nfs/personium/logback/dc1-logback.jar dest=/personium/logback/dc1-logback.jar owner=personium group=personium mode=0644
 
-- name: /opt/logback/logback.xml を配備
-  copy: src=./resource/ap/opt/logback/logback.xml dest=/opt/logback/logback.xml owner=personium group=personium mode=0644
+#- name: /opt/logback/logback.xml を配備
+#  copy: src=./resource/ap/opt/logback/logback.xml dest=/opt/logback/logback.xml owner=personium group=personium mode=0644
 
 - name: /etc/rc.d/init.d/logback を配備
   copy: src=./resource/nfs/etc/rc.d/init.d/logback dest=/etc/rc.d/init.d/logback owner=root group=root mode=0755

@@ -11,7 +11,7 @@
 
 - include: ./tasks/common/init_ebs_volume.yml
   vars:
-    diskname: {{ es_data_vol }}
+    diskname: "{{ es_data_vol }}"
     #diskname: sdb
     mountpoint: /opt/es_data-log
 
