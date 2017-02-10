@@ -110,7 +110,7 @@
 
     <logger  name="io.personium.engine">
         <level value="DEBUG" />
-        <appender-ref ref="FILE_CORE" />
+        <appender-ref ref="FILE_ENGINE" />
         <appender-ref ref="stdout" />
     </logger>
 
