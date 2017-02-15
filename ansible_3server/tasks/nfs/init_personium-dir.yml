@@ -1,4 +1,4 @@
-# Copyright FUJITSU LIMITED 2015.
+# Copyright FUJITSU LIMITED 2015-2017.
 
 - name: /personium を作成
   file: state=directory path=/personium owner=root group=root mode=0755

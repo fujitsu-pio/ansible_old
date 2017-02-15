@@ -1,4 +1,4 @@
-# Copyright FUJITSU LIMITED 2015.
+# Copyright FUJITSU LIMITED 2015-2017.
 
 - name: logback をダウンロード
   command: wget -q -O logback-1.0.3.tar.gz --no-check-certificate http://logback.qos.ch/dist/logback-1.0.3.tar.gz
